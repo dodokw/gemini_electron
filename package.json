@@ -1,0 +1,66 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "main": "electron.js",
+  "scripts": {
+    "start": "concurrently \"npm run react-start\" \"npm run electron-wait-and-start\"",
+    "react-start": "cd gemini-app && npm start",
+    "react-build": "cd gemini-app && npm run build",
+    "server-start": "nodemon server.js",
+    "electron-wait-and-start": "wait-on http-get://localhost:3000 && npm run electron-start",
+    "electron-start": "electron .",
+    "build": "npm run swagger-gen && npm run react-build && electron-builder",
+    "swagger-gen": "node swagger-autogen.js",
+    "rebuild": "electron-rebuild",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0",
+    "electron": "^31.0.0",
+    "electron-builder": "^26.0.12",
+    "electron-rebuild": "^3.2.9",
+    "prisma": "^6.19.0",
+    "react": "^18.3.1",
+    "swagger-autogen": "^2.23.7",
+    "wait-on": "^9.0.1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.19",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-machine-id": "^1.1.12",
+    "node-pty": "^1.0.0",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^4.1.12"
+  },
+  "build": {
+    "appId": "com.electron.gemini-app",
+    "productName": "GeminiApp",
+    "files": [
+      "electron.js",
+      "server.js",
+      "preload.js",
+      "swagger-output.json",
+      "src/**/*",
+      "src/dev.env",
+      "gemini-app/build/**/*",
+      "node_modules/**/*"
+    ],
+    "asar": true,
+    "mac": {
+      "target": "dmg",
+      "icon": "gemini-app/public/logo512.png"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}

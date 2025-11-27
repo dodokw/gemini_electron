@@ -1,0 +1,145 @@
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  user-select: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.title-bar-drag-region {
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 4px;
+}
+
+.title-bar-title {
+  margin-left: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.title-bar-controls {
+  display: flex;
+  height: 100%;
+  padding-right: 4px;
+}
+
+.nav-button,
+.control-button {
+  -webkit-app-region: no-drag;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  width: 46px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  margin: 0px 1px;
+}
+
+.nav-button {
+  font-size: 22px;
+  font-weight: 300;
+  width: 40px;
+}
+
+.nav-button:hover,
+.control-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.nav-button:active,
+.control-button:active {
+  transform: scale(0.95);
+}
+
+.control-button {
+  font-size: 14px;
+  width: 44px;
+}
+
+.close-button:hover {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+.close-button:active {
+  background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+}
+
+/* 아이콘 스타일 개선 */
+.nav-button::before,
+.control-button::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 반응형 애니메이션 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-bar {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 포커스 상태 스타일 */
+.nav-button:focus-visible,
+.control-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: -2px;
+}
+
+/* Optional: Dark mode variant */
+.title-bar.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+/* Optional: Light mode variant */
+.title-bar.light-mode {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #2d3748;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.title-bar.light-mode .nav-button,
+.title-bar.light-mode .control-button {
+  color: #2d3748;
+}
+
+.title-bar.light-mode .nav-button:hover,
+.title-bar.light-mode .control-button:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
