@@ -6,9 +6,13 @@ React, Electron, Express.js를 기반으로 구축된 데스크톱 애플리케�
 
 - **Electron 데스크톱 앱**: React 기반의 사용자 인터페이스를 제공하는 Electron 애플리케이션입니다.
 - **Express.js 백엔드**: RESTful API 서버를 내장하고 있습니다.
-- **데이터베이스 연동**: Prisma ORM을 사용하여 PostgreSQL 데이터베이스를 쉽고 안전하게 관리합니다.
+- **데이터베이스 연동**: PostgreSQL 데이터베이스를 통해 데이터를 저장합니다.
 - **인증 시스템**: JWT(Json Web Token)와 BCrypt를 사용하여 안전한 로그인 및 회원가입 기능을 제공합니다.
-- **터미널 통합**: `node-pty`를 사용하여 애플리케이션 내부에서 CLI 명령(Gemini CLI 등)을 실행하고 결과를 확인할 수 있습니다.
+- **터미널 통합**: `node-pty`를 사용하여 애플리케이션 내부에서 CLI 명령(Gemini CLI 등)을 실행하고 결
+
+https://github.com/user-attachments/assets/2754f6ce-06ae-409d-8711-aed2b0bbbda9
+
+과를 확인할 수 있습니다.
 - **API 문서화**: `swagger-autogen` 및 `swagger-ui-express`를 사용하여 `/api-docs` 경로에서 API 명세를 자동으로 제공합니다.
 
 ## 🛠️ 사전 요구 사항 (Prerequisites)
@@ -21,6 +25,8 @@ React, Electron, Express.js를 기반으로 구축된 데스크톱 애플리케�
   ```bash
   npm install -g @google/gemini-cli
   ```
+## Playwright MCP
+ - 웹을 통해 검색을 하게하려면 해당 mcp가 반드시 설치되어 있어야합니다.
 
 ## 📦 설치 방법 (Installation)
 
